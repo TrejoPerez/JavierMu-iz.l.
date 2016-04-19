@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Proyecto Java 3</title>
+        <meta charset="UTF-8">
+           <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+    </head>
+    <body  ng-app="modulo" class="bg-info">
+        <div align="left"><font style="background-color: salmon" >Proyecto Muñiz  &  Trejo</font></div>
+        <div ng-controller="ctrlMensaje" align="center">
+            <h1>¿Que deseas hacer?</h1>
+            <button class="btn bg-primary"  onclick="window.open('buscarID.html')">Buscar por Id</button>
+            <button class="btn bg-primary"   onclick="window.open('BuscarTodos.html')">Buscar Todos</button>
+            <button class="btn bg-primary"   onclick="window.open('Actualizar.html')">Actualizar</button>
+            <button class="btn bg-primary"   onclick="window.open('Guardar.html')">Guardar</button>
+            <button class="btn bg-primary"   onclick="window.open('borrarID.html')">Borrar</button>
+            
+        </div>
+    </body>
+</html>

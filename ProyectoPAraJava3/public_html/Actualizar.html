@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+     <meta charset="UTF-8">
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+   <script >
+            angular.module('mensaje',[]).controller('ctrlMensaje', function($scope,$http){
+
+             $scope.actualizar = function(){
+                  $http.put('http://localhost:9000/mensajep/'+$scope.Aid+'/'+$scope.Atitulo+'/' +$scope.Acuerpo)
+                          .success(function(json){
+                     $scope.actualizado=json; 
+                  });
+                  
+              }    
+        });
+            
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div align="left"><font style="background-color: salmon" >Proyecto Muñiz  &  Trejo</font></div>
+    <div align="center"><font style="background-color: salmon" >Actualizar Datos</font></div>
+        <body ng-app="mensaje" class="bg-info">
+        <div ng-controller="ctrlMensaje" align="center">
+        <h6 class="alert-info" style="background-color: springgreen">Id
+             <input type="text" ng-model="Aid">
+             titulo
+            <input type="text" ng-model="Atitulo">
+            cuerpo
+            <input type="text" ng-model="Acuerpo">
+            <button class="btn btn-primary" ng-click="actualizar()"onclick='alert("Datos Actualizados")'>Actualizar</button>
+            {{actualizado}}</h6>
+            
+        </div>
+            <div align="right">
+             <input class="btn btn-danger" type="button"   value="Cerrar Ventana" onclick="window.close()" />
+         </div>
+        </body>
+</html>

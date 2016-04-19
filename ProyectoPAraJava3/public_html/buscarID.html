@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+   <head>
+     <meta charset="UTF-8">
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        <script >
+            angular.module('mensaje',[]).controller('ctrlMensaje', function($scope,$http){
+           $scope.buscarId=function(){
+            $http.get('http://localhost:9000/mensajes/'+$scope.busca)
+                    .success(function(json){
+                $scope.buscado=json;
+                   }); 
+            }   
+        });
+            
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div align="left"><font style="background-color: salmon" >Proyecto Muñiz  &  Trejo</font></div>
+    <div align="center"><font style="background-color: salmon" >Buscar Datos Por Id</font></div>
+     <body ng-app="mensaje" class="bg-info">
+        <div ng-controller="ctrlMensaje" align="center">
+            <h6 class="alert-success" style="background-color: springgreen">Id
+            <input type="text" ng-model="busca">
+            <button class="btn btn-default" ng-click="buscarId()"onclick='alert("Dato Encontrado")'>Buscar Datos Por Id</button></h6>
+            
+                <div>
+                    <table class="table"style="background-color: orangered">
+                        <thead> 
+                            <tr>
+                                <th>titulo</th>
+                                <th>cuerpo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="success">
+                                <td style="background-color: #31b0d5"> {{buscado.titulo}}</td>
+                                <td style="background-color: #31b0d5">{{buscado.cuerpo}}</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>    
+        </div>
+         <div align="right">
+             <input class="btn btn-danger" type="button"   value="Cerrar Ventana" onclick="window.close()" />
+         </div>
+    </body>
+</html>

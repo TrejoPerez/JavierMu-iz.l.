@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+     <meta charset="UTF-8">
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        <script >
+            angular.module('mensaje',[]).controller('ctrlMensaje', function($scope,$http){
+            
+            
+            
+              $scope.guardar = function(){
+                  $http.post('http://localhost:9000/mensaje/'+$scope.titulo+'/'+$scope.cuerpo).success(function(json){
+                     $scope.guardado=json; 
+                  });
+                  
+              }  
+            
+            
+        });
+            
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div align="left"><font style="background-color: salmon" >Proyecto Muñiz  &  Trejo</font></div>
+    <div align="center"><font style="background-color: salmon" >Guardar Datos</font></div>
+     <body ng-app="mensaje" class="bg-info">
+        <div ng-controller="ctrlMensaje" align="center">
+            <h6 class="alert-success" style="background-color: springgreen">titulo
+             <input  type="text" ng-model="titulo">
+            cuerpo
+            <input type="text" ng-model="cuerpo" font-color="blue">
+            <button class ="btn btn-success" ng-click="guardar()"onclick='alert("Datos Guardados con exito")'>Guardar Datos</button>
+            {{guardado}}</h6>
+        </div>
+         <div align="right">
+             <input class="btn btn-danger" type="button"   value="Cerrar Ventana" onclick="window.close()" />
+         </div>
+        </body>
+</html>
